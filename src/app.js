@@ -18,11 +18,7 @@ function formatDate(timestamp){
 
 
 function displayTemperature(response){
-    console.log(response.data)
-    console.log(response.data.temperature.current);
-    console.log(response.data.city);
-    console.log(response.data.condition.description);
-    console.log(response.data.temperature.humidity);
+    // console.log(response.data)
     // Selecting ID temperature in HTML and giving variable name of temperatureElement
     let temperatureElement = document.querySelector("#temperature");
     // Taking the temperatureElement and replacing content w/in HTML w/ the current temp
@@ -44,11 +40,9 @@ function displayTemperature(response){
     dateElement.innerHTML = formatDate(response.data.time * 1000);
 }
 
-
-
 let apiKey = "bd79ao40tde3dec118ca46bc3e6dd55f";
 let city = "Dayton";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
-console.log(apiUrl);
+// console.log(apiUrl);
 
 axios.get(apiUrl).then(displayTemperature);
