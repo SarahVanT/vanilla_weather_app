@@ -38,6 +38,13 @@ function displayTemperature(response){
 
     let dateElement = document.querySelector("#date");
     dateElement.innerHTML = formatDate(response.data.time * 1000);
+
+    let iconElement = document.querySelector("#icon");
+    iconElement.setAttribute(
+        "src",
+        response.data.condition.icon_url
+      );
+    iconElement.setAttribute("alt", response.data.condition.description);  
 }
 
 let apiKey = "bd79ao40tde3dec118ca46bc3e6dd55f";
