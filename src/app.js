@@ -19,27 +19,22 @@ function formatDate(timestamp){
 
 function displayTemperature(response){
     // console.log(response.data)
-    // Selecting ID temperature in HTML and giving variable name of temperatureElement
     let temperatureElement = document.querySelector("#temperature");
-    // Taking the temperatureElement and replacing content w/in HTML w/ the current temp
-    temperatureElement.innerHTML = Math.round(response.data.temperature.current);
-
     let cityElement = document.querySelector("#city");
-    cityElement.innerHTML = response.data.city;
-
     let descriptionElement = document.querySelector("#description");
-    descriptionElement.innerHTML = response.data.condition.description;
-
     let humidityElement = document.querySelector("#humidity");
-    humidityElement.innerHTML = response.data.temperature.humidity;
-
     let windElement = document.querySelector("#wind");
-    windElement.innerHTML = Math.round(response.data.wind.speed);
-
     let dateElement = document.querySelector("#date");
-    dateElement.innerHTML = formatDate(response.data.time * 1000);
-
     let iconElement = document.querySelector("#icon");
+
+    fahrenheitTemperature = response.data.temperature.current;
+
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+    cityElement.innerHTML = response.data.city;
+    descriptionElement.innerHTML = response.data.condition.description;
+    humidityElement.innerHTML = response.data.temperature.humidity;
+    windElement.innerHTML = Math.round(response.data.wind.speed);
+    dateElement.innerHTML = formatDate(response.data.time * 1000);
     iconElement.setAttribute(
         "src",
         response.data.condition.icon_url
@@ -64,5 +59,35 @@ function handleSubmit(event){
     console.log(cityInputElement.value);
 }
 
+function calculateCelsiusTemp(event){
+    event.preventDefault();
+    // Selecting the temperature and save it as a temperatureElement variable
+    let temperatureElement = document.querySelector("#temperature");
+    let celsiusTemperature = (fahrenheitTemperature-32)*5/9;
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+    // putting calculated temperature back into id named temperature
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function calculateFahrenheitTemp(event){
+    event.preventDefault();
+    // Selecting the temperature and save it as a temperatureElement variable
+    let temperatureElement = document.querySelector("#temperature");
+    fahrenheitLink.classList.add("active");
+    celsiusLink.classList.remove("active");
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitTemperature = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", calculateCelsiusTemp);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", calculateFahrenheitTemp);
+
+search("Dayton");
