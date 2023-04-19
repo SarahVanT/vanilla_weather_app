@@ -15,7 +15,8 @@ function formatDate(timestamp){
     return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+    console.log(response.data.daily);
     let forecastElement = document.querySelector("#forecast");
   
     let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
@@ -46,6 +47,13 @@ function displayForecast() {
     console.log(forecastHTML);
 }
 
+function getForcast(coordinates){
+    console.log(coordinates);
+    let apiKey = "62bc298785543e137bc6756e514eb1c3";
+    let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${apiKey}&units=imperial`;
+    axios.get(apiURL).then(displayForecast)
+}
+
 
 function displayTemperature(response){
     // console.log(response.data)
@@ -72,6 +80,8 @@ function displayTemperature(response){
         response.data.condition.icon_url
       );
     iconElement.setAttribute("alt", response.data.condition.description);  
+
+    getForcast(response.data.coordinates);
 }
 
 function search(city){
@@ -123,4 +133,3 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", calculateFahrenheitTemp);
 
 search("Dayton");
-displayForecast();
