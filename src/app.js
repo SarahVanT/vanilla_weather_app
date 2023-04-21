@@ -111,35 +111,7 @@ function handleSubmit(event){
     console.log(cityInputElement.value);
 }
 
-function calculateCelsiusTemp(event){
-    event.preventDefault();
-    // Selecting the temperature and save it as a temperatureElement variable
-    let temperatureElement = document.querySelector("#temperature");
-    let celsiusTemperature = (fahrenheitTemperature-32)*5/9;
-    celsiusLink.classList.add("active");
-    fahrenheitLink.classList.remove("active");
-    // putting calculated temperature back into id named temperature
-    temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-function calculateFahrenheitTemp(event){
-    event.preventDefault();
-    // Selecting the temperature and save it as a temperatureElement variable
-    let temperatureElement = document.querySelector("#temperature");
-    fahrenheitLink.classList.add("active");
-    celsiusLink.classList.remove("active");
-    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-let fahrenheitTemperature = null;
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", calculateCelsiusTemp);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", calculateFahrenheitTemp);
 
 search("Dayton");
