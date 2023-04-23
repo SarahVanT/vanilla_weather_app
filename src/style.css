@@ -1,13 +1,31 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
+    background: rgb(250, 250, 250);
 }
 
 h1{
-    color: #4f4f4f;
-    font-size: 24px;
+    /* color: #4f4f4f; */
+    color: #000000;
+    /* font-size: 24px; */
     font-weight: 700;
     line-height: 28px;
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
+}
+
+hr{
+    border: 2.5px solid #8A5696;
+}
+
+p{
+    margin-top: 10px;
+}
+
+p a{
+    color: #905C8B;
+}
+
+p a:hover{
+    color: #ac6da5;
 }
 
 ul{
@@ -17,12 +35,12 @@ ul{
 
 li{
     list-style: none;
-    color: #707070;
     font-size: 16px;
     margin: 0;
-    padding: 0;
+    padding: 2px;
     font-weight: 100;
     line-height: 19px;
+    color: rgb(43, 43, 43)
 }
 
 li:first-letter{
@@ -31,13 +49,14 @@ li:first-letter{
 
 .weather-app-wrapper{
     max-width: 600px;
-    margin: 30px auto;
+    margin: 50px auto;
 }
 
 .weather-app{
     padding: 20px;
-    border: 1px solid black;
     border-radius: 8px;
+    box-shadow: 16px 10px 20px rgba(0, 0, 0, 0.2);
+    background: #7FB5D1;
 }
 
 .overview{
@@ -51,7 +70,7 @@ li:first-letter{
 }
 
 .weather-temperature strong{
-    color: rgb(33, 33, 33);
+    color: #000000;
     font-size: 64px;
     line-height: 1;
     font-weight: 400;
@@ -62,6 +81,7 @@ li:first-letter{
     font-size: 16px;
     /* moving units up */
     top: -34px;
+    color: #000000;
   }
 
 .weather-temperature a{
@@ -69,7 +89,7 @@ li:first-letter{
 }
 
 .weather-temperature .active {
-    color: rgb(33, 33, 33);
+    color: rgb(0, 0, 0);
     cursor: default;
 }
 
@@ -80,13 +100,24 @@ li:first-letter{
 }
 
 .weather-forecast-date{
-    font-size: 16px;
-}
-
-.weather-forecast-temperature-min {
-    opacity: 0.5;
+    font-size: 18px;
 }
 
 .weather-forecast-temperatures {
-    font-size: 13px;
+    font-size: 18px;
 }
+
+.btn-color{
+    background: #905C8B;
+    border-color: #905C8B;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.btn-color:hover{
+    background: #ac6da5;
+    border-color: #ac6da5;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+

@@ -17,22 +17,22 @@
 <body>
     <div class="container">
         <div class="weather-app-wrapper">
-            <div class="weather-app bg-light">
+            <div class="weather-app">
                 <form id="search-form" class="mb-3">
                     <div class="row">
                         <div class="col-9">
                            <input type="search" placeholder="Type a city" class="form-control" id="city-input" autocomplete="off"/> 
                         </div>
                         <div class="col-3">
-                           <input type="submit" value="Search" class="btn btn-primary w-100 "/> 
+                           <input type="submit" value="Search" class="btn btn-primary w-100 btn-color"/> 
                         </div>
                     </div>
                 </form>
                 <div class="overview">
                     <h1 id="city"></h1>
                     <ul>
-                        <li>Last updated: <span id="date"></span></li>
-                        <li id="description"></li>
+                        <li><span id="date"></span></li>
+                        
                     </ul>
                 </div>
                 <div class="row">
@@ -46,6 +46,7 @@
                     </div>
                     <div class="col-6">
                         <ul>
+                            <li id="description"></li>
                             <li>
                                 Humidity: <span id="humidity"></span>%
                             </li>
@@ -57,10 +58,10 @@
                 </div>
                 <div class="weather-forecast" id="forecast"></div>
             </div>
-            <small>
+            <p>
                 <a href="https://github.com/SarahVanT/vanilla_weather_app" target="_blank">Open-source code</a> by Sarah
                 VanTilburg
-            </small>
+            </p>
         </div>
     </div>
 
